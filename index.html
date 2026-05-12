@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KUL Tech Solutions | Freelance Tech Specialist</title>
+  <meta name="description" content="KUL Tech Solutions — IT Support, Web Design, Python Automation, AI Services, Online Applications & Compliance Documents. Based in Polokwane, South Africa.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green: #00ff41;
+      --green-dim: rgba(0,255,65,0.15);
+      --green-border: rgba(0,255,65,0.3);
+      --bg: #0a0a0a;
+      --bg2: #111111;
+      --bg3: #181818;
+      --border: #1e1e1e;
+      --text: #e0e0e0;
+      --muted: #666666;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 999;
+      background: rgba(10,10,10,0.97);
+      border-bottom: 1px solid var(--green-border);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 2rem; height: 62px;
+      backdrop-filter: blur(10px);
+    }
+    .logo-img { height: 44px; width: auto; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta {
+      background: var(--green); color: #0a0a0a;
+      border: none; padding: 8px 18px; border-radius: 6px;
+      font-size: 13px; font-weight: 600; cursor: pointer; transition: opacity 0.2s;
+      text-decoration: none;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 2rem; max-width: 780px; margin: 0 auto; }
+    .divider { border: none; border-top: 1px solid #141414; }
+    .section-label { font-size: 11px; letter-spacing: 3px; color: var(--green); text-transform: uppercase; margin-bottom: 10px; }
+    .section-title { font-size: 30px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+    .section-sub { font-size: 14px; color: var(--muted); margin-bottom: 36px; line-height: 1.7; }
+
+    /* ── HERO ── */
+    .hero { text-align: center; padding-top: 90px; padding-bottom: 90px; }
+    .terminal-line { font-family: 'Courier New', monospace; font-size: 13px; color: var(--green); margin-bottom: 24px; opacity: 0.6; }
+    .cursor { display: inline-block; width: 9px; height: 15px; background: var(--green); vertical-align: middle; animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero-logo { width: 130px; height: 130px; object-fit: contain; margin: 0 auto 24px; display: block; border-radius: 18px; background: #000; border: 1px solid var(--green-border); padding: 8px; }
+    .hero-badge { display: inline-block; font-size: 11px; letter-spacing: 2px; color: var(--green); border: 1px solid var(--green-border); padding: 5px 16px; border-radius: 20px; margin-bottom: 18px; text-transform: uppercase; }
+    .hero h1 { font-size: 52px; font-weight: 700; color: var(--white); line-height: 1.1; }
+    .hero h1 span { color: var(--green); }
+    .hero-sub { font-size: 18px; color: #aaa; margin: 8px 0; font-weight: 400; }
+    .tagline { font-size: 14px; color: var(--muted); margin: 16px auto 36px; line-height: 1.8; max-width: 520px; }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--green); color: #0a0a0a; border: none; padding: 13px 30px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: opacity 0.2s; text-decoration: none; display: inline-block; }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-outline { background: transparent; color: var(--green); border: 1px solid var(--green-border); padding: 13px 30px; border-radius: 8px; font-size: 15px; cursor: pointer; transition: border-color 0.2s, background 0.2s; text-decoration: none; display: inline-block; }
+    .btn-outline:hover { border-color: var(--green); background: var(--green-dim); }
+
+    /* ── STATS BAR ── */
+    .stats-bar { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 28px 2rem; }
+    .stats-inner { max-width: 780px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; text-align: center; }
+    .stat-num { font-size: 28px; font-weight: 700; color: var(--green); }
+    .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    /* ── ABOUT ── */
+    .about-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 30px; display: flex; gap: 24px; align-items: flex-start; }
+    .avatar-logo { width: 80px; height: 80px; border-radius: 12px; object-fit: contain; background: #000; border: 1px solid var(--green-border); padding: 6px; flex-shrink: 0; }
+    .about-text h3 { font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+    .about-text .role { font-size: 13px; color: var(--green); margin-bottom: 12px; }
+    .about-text p { font-size: 14px; color: #888; line-height: 1.8; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .tag { font-size: 11px; color: var(--green); background: var(--green-dim); border: 1px solid var(--green-border); border-radius: 20px; padding: 4px 12px; }
+
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .skill-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 20px 16px; transition: border-color 0.2s, transform 0.2s; }
+    .skill-card:hover { border-color: var(--green-border); transform: translateY(-2px); }
+    .skill-card i { font-size: 26px; color: var(--green); display: block; margin-bottom: 12px; }
+    .skill-card h3 { font-size: 14px; font-weight: 600; color: #ddd; margin-bottom: 4px; }
+    .skill-card p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    /* ── SERVICES ── */
+    .services-list { display: flex; flex-direction: column; gap: 10px; }
+    .service-item { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; transition: border-color 0.2s; }
+    .service-item:hover { border-color: var(--green-border); }
+    .service-left { display: flex; align-items: center; gap: 16px; }
+    .service-icon { width: 40px; height: 40px; background: var(--green-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .service-icon i { font-size: 20px; color: var(--green); }
+    .service-name { font-size: 14px; font-weight: 600; color: #ddd; }
+    .service-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .service-price { font-size: 13px; color: var(--green); font-weight: 600; white-space: nowrap; margin-left: 12px; background: var(--green-dim); border: 1px solid var(--green-border); padding: 4px 12px; border-radius: 20px; }
+
+    /* ── CONTACT ── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .contact-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 18px; display: flex; align-items: center; gap: 14px; cursor: pointer; transition: border-color 0.2s, transform 0.2s; text-decoration: none; }
+    .contact-card:hover { border-color: var(--green-border); transform: translateY(-2px); }
+    .contact-icon { width: 40px; height: 40px; background: var(--green-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-icon i { font-size: 20px; color: var(--green); }
+    .contact-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+    .contact-val { font-size: 13px; color: #ccc; font-weight: 500; }
+    .contact-cta { margin-top: 28px; background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center; }
+    .contact-cta p { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+
+    /* ── FOOTER ── */
+    footer { text-align: center; padding: 40px 2rem; border-top: 1px solid #111; }
+    .footer-logo { height: 48px; margin: 0 auto 14px; display: block; object-fit: contain; }
+    footer p { font-size: 13px; color: #444; }
+    footer span { color: var(--green); }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin: 12px 0; }
+    .footer-links a { font-size: 12px; color: #555; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--green); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 36px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+      .about-card { flex-direction: column; align-items: center; text-align: center; }
+      .tags { justify-content: center; }
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 14px; }
+      section { padding: 56px 1.2rem; }
+      .service-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <img class="logo-img" src="assets/logo.png" alt="KUL logo">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Hire Me</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="terminal-line">&gt; initializing KUL.portfolio.exe<span class="cursor"></span></div>
+    <img class="hero-logo" src="assets/logo.png" alt="KUL logo">
+    <div class="hero-badge">&#x2022; Available for hire</div>
+    <h1>Hi, I'm <span>KUL</span></h1>
+    <div class="hero-sub">Tech Freelancer &amp; Problem Solver</div>
+    <p class="tagline">
+      IT Support &middot; Web Design &middot; Python Automation &middot; AI Solutions<br>
+      Online Applications &middot; Compliance Docs &middot; Data Analysis<br>
+      Based in Polokwane, South Africa &mdash; serving clients worldwide.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Hire Me</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div><div class="stat-num">8+</div><div class="stat-label">Services Offered</div></div>
+      <div><div class="stat-num">100%</div><div class="stat-label">Dedicated</div></div>
+      <div><div class="stat-num">ZA</div><div class="stat-label">Based in Polokwane</div></div>
+      <div><div class="stat-num">24/7</div><div class="stat-label">Available Online</div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">Who I am</div>
+    <div class="section-title">About Me</div>
+    <div class="about-card">
+      <img class="avatar-logo" src="assets/logo.png" alt="KUL logo">
+      <div class="about-text">
+        <h3>KUL</h3>
+        <div class="role">Freelance Tech Specialist &middot; Polokwane, South Africa</div>
+        <p>I'm a self-driven tech professional with hands-on experience in IT support, web design, Python programming, data analysis, AI tools, online application systems, and digital documentation. I help individuals and businesses solve real problems using technology — fast, professionally, and affordably. Whether you're a small business, a startup, or an individual, I've got the skills to get the job done.</p>
+        <div class="tags">
+          <span class="tag">IT Support</span>
+          <span class="tag">Web Design</span>
+          <span class="tag">Python</span>
+          <span class="tag">AI Tools</span>
+          <span class="tag">Networking</span>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">Online Applications</span>
+          <span class="tag">Compliance Docs</span>
+          <span class="tag">Business Documents</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">What I know</div>
+    <div class="section-title">Skills</div>
+    <p class="section-sub">A full stack of computing skills ready to solve your problems.</p>
+    <div class="skills-grid">
+      <div class="skill-card"><i class="ti ti-server"></i><h3>IT Support</h3><p>PC repair, troubleshooting, remote &amp; on-site support</p></div>
+      <div class="skill-card"><i class="ti ti-wifi"></i><h3>Networking</h3><p>Network setup, configuration, LAN/WAN support</p></div>
+      <div class="skill-card"><i class="ti ti-layout"></i><h3>Web Design</h3><p>Modern, mobile-friendly websites for businesses</p></div>
+      <div class="skill-card"><i class="ti ti-brand-python"></i><h3>Python</h3><p>Scripting, automation, bots &amp; data tools</p></div>
+      <div class="skill-card"><i class="ti ti-table"></i><h3>Data &amp; Excel</h3><p>Spreadsheets, reports, data cleanup &amp; dashboards</p></div>
+      <div class="skill-card"><i class="ti ti-brain"></i><h3>AI Solutions</h3><p>AI setup, chatbots &amp; smart business automation</p></div>
+      <div class="skill-card"><i class="ti ti-file-certificate"></i><h3>Compliance Docs</h3><p>POPIA, CIPC, policy templates &amp; legal docs</p></div>
+      <div class="skill-card"><i class="ti ti-forms"></i><h3>Online Applications</h3><p>Web forms, booking systems &amp; client portals</p></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-label">What I offer</div>
+    <div class="section-title">Services &amp; Pricing</div>
+    <p class="section-sub">Transparent, affordable pricing for every budget. All services available remotely.</p>
+    <div class="services-list">
+      <div class="service-item">
+        <div class="service-left">
+          <div class="service-icon"><i class="ti ti-tool"></i></div>
+          <div><div class="service-name">IT Support &amp; Remote Help</div><div class="service-desc">Fix PCs, setup networks, troubleshoot issues remotely or on-site</div></div>
+        </div>
+        <div class="service-price">R150–R500/hr</div>
+      </div>
+      <div class="service-item">
+        <div class="service-left">
+          <div class="service-icon"><i class="ti ti-browser"></i></div>
+          <div><div class="service-name">Website Design</div><div class="service-desc">Professional, mobile-friendly websites for businesses &amp; individuals</div></div>
+        </div>
+        <div class="service-price">R200–R1,100 excl. hosting</div>
+      </div>
+      <div class="service-item">
+        <div class="service-left">
+          <div class="service-icon"><i class="ti ti-forms"></i></div>
+          <div><div class="service-name">Online Application Systems</div><div class="service-desc">Web-based application forms, booking systems &amp; client portals</div></div>
+        </div>
+        <div class="service-price">R60–R200</div>
+      </div>
+      <div class="service-item">
+        <div class="service-left">
+          <div class="service-icon"><i class="ti ti-file-certificate"></i></div>
+          <div><div class="service-name">Compliance Documents</div><div class="service-desc">Business compliance docs, POPIA, CIPC registration &amp; policy templates</div></div>
+        </div>
+        <div class="service-price">R250–R1,000</div>
+      </div>
+      <div class="service-item">
+        <div class="service-left">
+          <div class="service-icon"><i class="ti ti-file-text"></i></div>
+          <div><div class="service-name">Business Documents &amp; Reports</div><div class="service-desc">Business plans, proposals, CVs, letters &amp; professional reports</div></div>
+        </div>
+        <div class="service-price">R60–R1,500</div>
+      </div>
+      <div class="service-item">
+        <div class="service-left">
+          <div class="service-icon"><i class="ti ti-table"></i></div>
+          <div><div class="service-name">Excel &amp; Data Analysis</div><div class="service-desc">Spreadsheets, dashboards, data cleanup &amp; reporting</div></div>
+        </div>
+        <div class="service-price">R150–R400/hr</div>
+      </div>
+      <div class="service-item">
+        <div class="service-left">
+          <div class="service-icon"><i class="ti ti-brand-python"></i></div>
+          <div><div class="service-name">Python Scripting &amp; Automation</div><div class="service-desc">Custom scripts, bots &amp; workflow automation for businesses</div></div>
+        </div>
+        <div class="service-price">R500–R2,000</div>
+      </div>
+      <div class="service-item">
+        <div class="service-left">
+          <div class="service-icon"><i class="ti ti-brain"></i></div>
+          <div><div class="service-name">AI Setup &amp; Consulting</div><div class="service-desc">Help businesses implement AI tools, chatbots &amp; smart workflows</div></div>
+        </div>
+        <div class="service-price">R800–R3,000</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Get in touch</div>
+    <div class="section-title">Contact &amp; Socials</div>
+    <p class="section-sub">Ready to work together? Reach out on any platform — I respond fast.</p>
+    <div class="contact-grid">
+      <a href="mailto:xxxpyxkidfelo@gmail.com" class="contact-card">
+        <div class="contact-icon"><i class="ti ti-mail"></i></div>
+        <div><div class="contact-label">Email</div><div class="contact-val">xxxpyxkidfelo@gmail.com</div></div>
+      </a>
+      <a href="https://wa.me/27760290831" target="_blank" class="contact-card">
+        <div class="contact-icon"><i class="ti ti-brand-whatsapp"></i></div>
+        <div><div class="contact-label">WhatsApp</div><div class="contact-val">+27 76 029 0831</div></div>
+      </a>
+      <a href="https://facebook.com/KULTechSolutions" target="_blank" class="contact-card">
+        <div class="contact-icon"><i class="ti ti-brand-facebook"></i></div>
+        <div><div class="contact-label">Facebook</div><div class="contact-val">KUL Tech Solutions</div></div>
+      </a>
+      <a href="https://linkedin.com/in/kul" target="_blank" class="contact-card">
+        <div class="contact-icon"><i class="ti ti-brand-linkedin"></i></div>
+        <div><div class="contact-label">LinkedIn</div><div class="contact-val">KUL Tech Solutions</div></div>
+      </a>
+      <a href="https://fiverr.com/kul" target="_blank" class="contact-card">
+        <div class="contact-icon"><i class="ti ti-star"></i></div>
+        <div><div class="contact-label">Fiverr</div><div class="contact-val">fiverr.com/kul</div></div>
+      </a>
+      <a href="https://github.com/kul" target="_blank" class="contact-card">
+        <div class="contact-icon"><i class="ti ti-brand-github"></i></div>
+        <div><div class="contact-label">GitHub</div><div class="contact-val">github.com/kul</div></div>
+      </a>
+    </div>
+    <div class="contact-cta">
+      <p>Have a project in mind? Let's talk about it.</p>
+      <a href="mailto:xxxpyxkidfelo@gmail.com" class="btn-primary">Send Me an Email</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img class="footer-logo" src="assets/logo.png" alt="KUL logo">
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p>&copy; 2026 <span>KUL Tech Solutions</span> &middot; Polokwane, South Africa</p>
+    <p style="margin-top:6px;">Powered by skill, driven by purpose.</p>
+  </footer>
+
+</body>
+</html>
